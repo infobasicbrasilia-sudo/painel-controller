@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BSBiA | Premium Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="premium-header">
+        <img src="BSBiA.png" alt="Logo" class="logo-premium">
+        <h1 class="titulo-portal">SOLUÇÕES BRASIL IA</h1>
+    </header>
+
+    <main class="dashboard-container">
+        
+        <nav id="menu-principal" class="button-grid">
+            <div class="group-label">Arquivos & Mídia</div>
+            <button class="btn-side" onclick="abrirServico('docs')">📄 CONVERTER PARA PDF</button>
+            <button class="btn-side" onclick="abrirServico('video')">🎬 MP4 PARA MP3</button>
+            
+            <div class="group-label">Segurança & IA</div>
+            <button class="btn-side" onclick="abrirServico('senha')">🔐 GERADOR DE SENHAS</button>
+            <button class="btn-side" onclick="abrirServico('img')">🖼️ REMOVE FUNDO IMAGEM</button>
+        </nav>
+
+        <section id="container-servico" class="iframe-wrapper" style="display: none;">
+            <div class="servico-header">
+                <button class="btn-voltar" onclick="fecharServico()">⬅ VOLTAR AO MENU</button>
+            </div>
+            <iframe id="frame-servico" src="" frameborder="0" allowfullscreen></iframe>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="traffic-monitor">
+            <script type='text/javascript' src='https://contador.s12.com.br/ad.js?id=Azyyd30w03Y7c070'></script>
+            <img src='https://contador.s12.com.br/img-Azyyd30w03Y7c070-3.gif' border='0' alt='contador'>
+        </div>
+        <p class="credits">© 2026 Alunos de Informática Básica</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

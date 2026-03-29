@@ -1,0 +1,91 @@
+:root {
+    --bg-dark: #070310;
+    --lilac-neon: #a855f7;
+    --glass: rgba(18, 12, 33, 0.9);
+    --border: rgba(168, 85, 247, 0.4);
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0; padding: 0; min-height: 100vh;
+    display: flex; flex-direction: column;
+    overflow-x: hidden;
+    color: #fff; font-family: 'Inter', sans-serif;
+
+    /* --- CORREÇÃO DO FUNDO: IMAGEM COBRE TELA TODA --- */
+    background: 
+        /* Overlay: Gradiente escuro para garantir contraste (0.8 = 80% opacidade) */
+        radial-gradient(circle, rgba(26, 11, 46, 0.8) 0%, rgba(7, 3, 16, 0.9) 100%),
+        /* A imagem flutuando no fundo, buscando na raiz */
+        url('../BrasilIALogo.png') no-repeat center center fixed;
+    
+    background-size: cover; /* Garante cobertura total (cover) */
+}
+
+.premium-header {
+    padding: 20px; text-align: center; background: rgba(0, 0, 0, 0.85);
+    border-bottom: 2px solid var(--lilac-neon);
+    z-index: 10;
+}
+
+.logo-premium { max-width: 50px; filter: drop-shadow(0 0 10px var(--lilac-neon)); }
+.titulo-portal { font-size: 1.2rem; letter-spacing: 3px; font-weight: 900; margin: 10px 0; }
+
+/* LAYOUT CENTRALIZADO */
+.dashboard-container {
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    padding: 20px; width: 100%;
+}
+
+/* GRID DE BOTÕES - CENTRALIZADO */
+.button-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 15px; width: 100%; max-width: 600px;
+    background: var(--glass); padding: 30px; border-radius: 20px;
+    border: 1px solid var(--border); backdrop-filter: blur(10px);
+}
+
+.group-label {
+    grid-column: span 2; font-size: 0.7rem; color: var(--lilac-neon);
+    text-transform: uppercase; letter-spacing: 2px; font-weight: 800;
+    margin-top: 10px; border-bottom: 1px solid var(--border); padding-bottom: 5px;
+}
+
+.btn-side {
+    background: rgba(255,255,255,0.05); color: #fff;
+    border: 1px solid var(--border); padding: 20px; border-radius: 12px;
+    font-weight: 700; cursor: pointer; transition: 0.3s; font-size: 0.9rem;
+}
+
+.btn-side:hover {
+    background: var(--lilac-neon); color: #000; box-shadow: 0 0 20px var(--lilac-neon);
+}
+
+/* IFRAME RESPONSIVO (TELA TODA) */
+.iframe-wrapper {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--bg-dark); z-index: 100; display: flex; flex-direction: column;
+}
+
+#frame-servico { width: 100%; flex: 1; border: none; background: #fff; }
+
+.servico-header { padding: 15px; background: #000; border-bottom: 2px solid var(--lilac-neon); }
+.btn-voltar {
+    background: #ff3333; color: #fff; border: none; padding: 12px 20px;
+    border-radius: 8px; font-weight: 800; cursor: pointer;
+}
+
+/* RODAPÉ */
+.main-footer { text-align: center; padding: 20px; background: rgba(0,0,0,0.5); z-index: 10; }
+.credits { font-size: 0.7rem; opacity: 0.5; margin-top: 10px; }
+
+/* --- RESPONSIVIDADE MOBILE (S25 / A21s) --- */
+@media (max-width: 600px) {
+    .button-grid {
+        grid-template-columns: 1fr; /* Um botão por linha no celular */
+        padding: 20px; margin: 10px;
+    }
+    .group-label { grid-column: span 1; }
+    .titulo-portal { font-size: 1rem; }
+}
