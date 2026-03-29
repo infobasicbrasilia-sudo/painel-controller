@@ -1,8 +1,9 @@
-/* CONFIGURAÇÕES GLOBAIS E CORES */
+/* CONFIGURAÇÕES GLOBAIS - PALETA CYBERPUNK */
 :root {
-    --bg-dark: #070310;
-    --lilac-neon: #a855f7;
-    --border: rgba(168, 85, 247, 0.5);
+    --bg-dark: #05010d;
+    --neon-cyan: #00f3ff; /* Azul Elétrico Cyberpunk */
+    --neon-purple: #bc13fe;
+    --border-glow: rgba(0, 243, 255, 0.5);
     --text-white: #ffffff;
 }
 
@@ -12,115 +13,114 @@
 }
 
 body {
-    margin: 0; 
-    padding: 0; 
-    min-height: 100vh;
-    display: flex; 
-    flex-direction: column;
+    margin: 0; padding: 0; min-height: 100vh;
+    display: flex; flex-direction: column;
     overflow-x: hidden;
     color: var(--text-white); 
     font-family: 'Inter', sans-serif;
-    
-    /* FUNDO PRINCIPAL FIXO */
     background: 
-        radial-gradient(circle, rgba(26, 11, 46, 0.8) 0%, rgba(7, 3, 16, 0.9) 100%),
+        radial-gradient(circle, rgba(13, 2, 33, 0.8) 0%, rgba(5, 1, 13, 0.95) 100%),
         url('../BrasilIALogo.png') no-repeat center center fixed;
     background-size: cover;
 }
 
-/* CABEÇALHO COMPACTO */
+/* CABEÇALHO */
 .premium-header {
-    padding: 12px 10px; 
+    padding: 15px 10px; 
     text-align: center; 
-    background: rgba(0, 0, 0, 0.85);
-    border-bottom: 2px solid var(--lilac-neon);
+    background: rgba(0, 0, 0, 0.9);
+    border-bottom: 2px solid var(--neon-cyan);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
     z-index: 10;
 }
 
 .logo-premium { 
-    max-width: 80px; 
-    filter: drop-shadow(0 0 10px var(--lilac-neon)); 
+    max-width: 85px; 
+    filter: drop-shadow(0 0 8px var(--neon-cyan)); 
 }
 
 .titulo-portal { 
-    font-size: 1rem; 
-    letter-spacing: 2px; 
+    font-size: 1.1rem; 
+    letter-spacing: 3px; 
     font-weight: 900; 
-    margin: 5px 0; 
-    text-transform: uppercase;
+    margin: 8px 0; 
+    color: var(--neon-cyan);
+    text-shadow: 0 0 5px var(--neon-cyan);
 }
 
-/* CONTEÚDO CENTRALIZADO */
+/* CONTAINER */
 .dashboard-container {
     flex: 1; 
     display: flex; 
     align-items: center; 
     justify-content: center;
     width: 100%;
-    padding: 10px 0; /* Padding vertical reduzido */
+    padding: 20px;
 }
 
-/* GRADE DE BOTÕES (SEMPRE UMA COLUNA) */
+/* GRADE VERTICAL */
 .button-grid {
     display: grid;
-    grid-template-columns: 1fr; /* FORÇA UM ABAIXO DO OUTRO SEMPRE */
-    gap: 10px; /* Espaçamento curto entre botões */
+    grid-template-columns: 1fr;
+    gap: 15px;
     width: 100%;
-    max-width: 500px; /* No Desktop não fica largo demais */
+    max-width: 400px;
     background: transparent;
-    padding: 0; 
-    border: none;
 }
 
 .group-label {
     font-size: 0.8rem;
-    color: var(--lilac-neon);
+    color: var(--text-white);
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     font-weight: 900;
     text-align: center;
-    margin-bottom: 15px;
-    text-shadow: 0 0 8px rgba(168, 85, 247, 0.5);
+    margin-bottom: 10px;
+    opacity: 0.8;
 }
 
-/* ESTILO DOS BOTÕES (MAIS BAIXOS E LARGURA TOTAL) */
+/* BOTÕES ARREDONDADOS CYBERPUNK */
 .btn-side {
-    background: rgba(168, 85, 247, 0.15);
-    color: var(--text-white);
-    border: 1px solid var(--border);
-    padding: 16px 15px; /* Altura reduzida para caber tudo sem scroll */
-    border-radius: 0; /* Opcional: Deixei reto para preencher as laterais no mobile */
-    font-weight: 800;
+    background: rgba(0, 243, 255, 0.05);
+    color: var(--neon-cyan);
+    border: 2px solid var(--neon-cyan);
+    padding: 18px; 
+    /* Arredondamento maior para estilo pílula/arredondado */
+    border-radius: 50px; 
+    font-weight: 900;
     cursor: pointer;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.2s ease;
-    backdrop-filter: blur(5px);
-    width: 100%; /* Garante preenchimento total */
-    border-left: none; /* Remove borda lateral para encostar na tela */
-    border-right: none;
+    letter-spacing: 2px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(4px);
+    box-shadow: inset 0 0 10px rgba(0, 243, 255, 0.1), 0 0 5px rgba(0, 243, 255, 0.2);
 }
 
 .btn-side:hover {
-    background: var(--lilac-neon);
+    background: var(--neon-cyan);
     color: #000;
-    box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+    box-shadow: 0 0 30px var(--neon-cyan);
+    transform: scale(1.05);
 }
 
 .btn-side:active {
-    background: rgba(168, 85, 247, 0.4);
+    transform: scale(0.95);
 }
 
-/* --- AJUSTE RESPONSIVO MOBILE (S25 / A21S) --- */
+/* RESPONSIVIDADE MOBILE (S25 / A21S) */
 @media (max-width: 600px) {
-    .button-grid {
-        max-width: 100%; /* No celular usa a largura toda da tela */
-    }
+    .dashboard-container { padding: 15px; }
     
+    .button-grid {
+        max-width: 100%;
+        gap: 12px;
+    }
+
     .btn-side {
-        padding: 20px 15px; /* Um pouco mais de altura no mobile para o toque */
-        font-size: 0.9rem;
+        padding: 22px; /* Altura confortável para o toque */
+        font-size: 0.95rem;
+        border-width: 2px;
     }
 }
 
@@ -135,38 +135,36 @@ body {
     flex-direction: column;
 }
 
-#frame-servico { 
-    width: 100%; 
-    flex: 1; 
-    border: none; 
-    background: #fff; 
-}
+#frame-servico { width: 100%; flex: 1; border: none; background: #fff; }
 
 .servico-header { 
-    padding: 10px; 
+    padding: 12px; 
     background: #000; 
-    border-bottom: 2px solid var(--lilac-neon); 
+    border-bottom: 2px solid var(--neon-cyan); 
 }
 
 .btn-voltar {
-    background: #ef4444; 
+    background: #ff0055; /* Rosa Choque para o botão de sair */
     color: #fff; 
     border: none; 
-    padding: 8px 15px;
-    border-radius: 6px; 
+    padding: 10px 20px;
+    border-radius: 30px; 
     font-weight: 900;
-    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    box-shadow: 0 0 10px rgba(255, 0, 85, 0.4);
 }
 
-/* RODAPÉ COMPACTO */
+/* RODAPÉ */
 .main-footer { 
     text-align: center; 
-    padding: 10px; 
+    padding: 15px; 
     background: rgba(0,0,0,0.8); 
 }
 
 .credits { 
-    font-size: 0.6rem; 
-    opacity: 0.8; 
+    font-size: 0.65rem; 
+    color: var(--neon-cyan);
+    opacity: 0.6; 
     margin: 0; 
 }
