@@ -1,9 +1,8 @@
-/* CONFIGURAÇÕES GLOBAIS - PALETA BRASIL IA + VERDE NEON */
 :root {
     --bg-dark: #05010a; 
     --roxo-interface: #a855f7; 
     --roxo-fundo-botao: #6b21a8; 
-    --verde-neon: #00ff66; /* Verde Vibrante para o Hover */
+    --verde-neon: #00ff66; 
     --text-white: #ffffff;
 }
 
@@ -13,135 +12,110 @@
 }
 
 body {
-    margin: 0; padding: 0; min-height: 100vh;
-    display: flex; flex-direction: column;
-    overflow-x: hidden;
+    margin: 0; padding: 0; 
+    height: 100vh;
+    display: flex; 
+    flex-direction: column;
+    overflow: hidden; 
     color: var(--text-white); 
     font-family: 'Inter', sans-serif;
-    
     background: 
         radial-gradient(circle, rgba(26, 11, 46, 0.8) 0%, rgba(7, 3, 16, 0.9) 100%),
         url('../BrasilIALogo.png') no-repeat center center fixed;
     background-size: cover;
 }
 
-/* CABEÇALHO */
+/* HEADER COMPACTO PARA SOBRAR ESPAÇO */
 .premium-header {
-    padding: 15px 10px; 
+    padding: 3px 0; 
     text-align: center; 
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0.95);
     border-bottom: 2px solid var(--roxo-interface);
-    z-index: 10;
 }
 
-.logo-premium { 
-    max-width: 120px; 
-    filter: drop-shadow(0 0 5px rgba(168, 85, 247, 0.5)); 
-}
+.logo-premium { max-width: 40px; } /* Diminuí a logo para focar no conteúdo */
 
 .titulo-portal { 
-    font-size: 1.1rem; 
-    letter-spacing: 2px; 
-    font-weight: 900; 
-    margin: 8px 0; 
-    text-transform: uppercase;
+    font-size: 0.75rem; 
+    font-weight: 400; 
+    margin: 0; 
+    opacity: 0.8;
 }
 
-/* CONTAINER */
+/* ÁREA CENTRAL */
 .dashboard-container {
     flex: 1; 
     display: flex; 
     align-items: center; 
     justify-content: center;
-    width: 100%;
-    padding: 20px;
+    padding: 5px;
 }
 
-/* GRADE VERTICAL */
 .button-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 8px; 
     width: 100%;
-    max-width: 450px;
-    background: transparent;
+    max-width: 380px;
 }
 
+/* --- DESTAQUE PARA OS ALUNOS (NOSSOS SERVIÇOS) --- */
 .group-label {
-    font-size: 0.8rem;
-    color: var(--roxo-interface);
+    font-size: 1.4rem; /* FONTE BEM MAIOR */
+    color: #fff;
+    background: rgba(168, 85, 247, 0.4); /* Fundo roxo suave para destacar o texto */
+    padding: 10px;
+    border-radius: 10px;
     text-transform: uppercase;
-    letter-spacing: 3px;
     font-weight: 900;
     text-align: center;
-    margin-bottom: 10px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+    margin-bottom: 15px;
+    border: 1px solid var(--roxo-interface);
+    text-shadow: 2px 2px 4px #000; /* Sombra no texto para facilitar a leitura */
 }
 
-/* BOTÕES ARREDONDADOS */
+/* BOTÕES ACESSÍVEIS */
 .btn-side {
     background: var(--roxo-fundo-botao);
     color: var(--text-white);
-    border: 2px solid var(--roxo-interface);
-    padding: 18px 20px; 
+    border: 2px solid var(--roxo-interface); /* Borda mais grossa */
+    padding: 15px; 
     border-radius: 50px;
-    font-weight: 800;
+    font-weight: 900; /* Texto bem grosso */
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 1.1rem; /* FONTE MAIOR NOS BOTÕES */
     text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease; /* Transição suave para o verde */
-    backdrop-filter: blur(5px);
+    transition: 0.2s;
     outline: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.4);
 }
 
-/* --- EFEITO VERDE AO PASSAR O MOUSE/TOQUE --- */
+/* VERDE NEON NO HOVER/TOQUE */
 .btn-side:hover {
-    background: var(--verde-neon); /* Fundo fica Verde */
-    color: #000; /* Texto muda para preto para dar contraste no verde */
-    border-color: var(--verde-neon);
-    box-shadow: 0 0 20px rgba(0, 255, 102, 0.6); /* Brilho verde */
-    transform: translateY(-2px); /* Leve subida */
+    background: var(--verde-neon);
+    color: #000;
+    border-color: #fff;
+    transform: scale(1.02);
 }
 
-.btn-side:active {
-    transform: scale(0.95);
+/* RESPONSIVIDADE MOBILE (S25 / A21S) */
+@media (max-width: 480px) {
+    .group-label { font-size: 1.2rem; }
+    .btn-side { padding: 18px; font-size: 1rem; }
 }
 
-/* MOBILE ADJUSTMENTS */
-@media (max-width: 600px) {
-    .dashboard-container { padding: 15px; }
-    .button-grid { max-width: 100%; }
-    .btn-side { 
-        padding: 22px 20px; 
-        font-size: 0.95rem; 
-    }
+/* RODAPÉ ACESSÍVEL */
+.main-footer { 
+    text-align: center; 
+    padding: 5px; 
+    background: rgba(0,0,0,0.95); 
 }
 
-/* IFRAME FULLSCREEN */
-.iframe-wrapper {
-    position: fixed; 
-    top: 0; left: 0; 
-    width: 100%; height: 100%;
-    background: var(--bg-dark); 
-    z-index: 100; 
-    display: flex; 
-    flex-direction: column;
+.credits { 
+    font-size: 0.6rem; 
+    color: var(--roxo-interface);
+    font-weight: 700;
+    margin: 0; 
 }
 
-#frame-servico { width: 100%; flex: 1; border: none; background: #fff; }
-
-.servico-header { padding: 10px; background: #000; border-bottom: 2px solid var(--roxo-interface); }
-.btn-voltar {
-    background: #ef4444; 
-    color: #fff; 
-    border: none; 
-    padding: 8px 15px;
-    border-radius: 30px; 
-    font-weight: 900;
-}
-
-/* RODAPÉ */
-.main-footer { text-align: center; padding: 15px; background: rgba(0,0,0,0.8); }
-.credits { font-size: 0.6rem; opacity: 0.8; margin: 0; }
+.traffic-monitor img { height: 12px; }
