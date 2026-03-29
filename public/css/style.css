@@ -2,14 +2,13 @@
 :root {
     --bg-dark: #070310;
     --lilac-neon: #a855f7;
-    --glass: rgba(18, 12, 33, 0.9);
-    --border: rgba(168, 85, 247, 0.4);
+    --border: rgba(168, 85, 247, 0.6); /* Borda um pouco mais visível já que não tem fundo */
     --text-white: #ffffff;
 }
 
 * { 
     box-sizing: border-box; 
-    -webkit-tap-highlight-color: transparent; /* Remove o brilho azul ao tocar no celular */
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -22,7 +21,7 @@ body {
     color: var(--text-white); 
     font-family: 'Inter', sans-serif;
     
-    /* FUNDO PREMIUM COM A LOGO BRASIL IA */
+    /* FUNDO PRINCIPAL FIXO */
     background: 
         radial-gradient(circle, rgba(26, 11, 46, 0.8) 0%, rgba(7, 3, 16, 0.9) 100%),
         url('../BrasilIALogo.png') no-repeat center center fixed;
@@ -31,7 +30,7 @@ body {
 
 /* CABEÇALHO */
 .premium-header {
-    padding: 20px 10px; 
+    padding: 15px 10px; 
     text-align: center; 
     background: rgba(0, 0, 0, 0.85);
     border-bottom: 2px solid var(--lilac-neon);
@@ -39,15 +38,15 @@ body {
 }
 
 .logo-premium { 
-    max-width: 100px; 
+    max-width: 90px; 
     filter: drop-shadow(0 0 10px var(--lilac-neon)); 
 }
 
 .titulo-portal { 
-    font-size: 1.2rem; 
-    letter-spacing: 3px; 
+    font-size: 1.1rem; 
+    letter-spacing: 2px; 
     font-weight: 900; 
-    margin: 10px 0; 
+    margin: 8px 0; 
     text-transform: uppercase;
 }
 
@@ -55,89 +54,81 @@ body {
 .dashboard-container {
     flex: 1; 
     display: flex; 
-    align-items: center;    /* Centraliza verticalmente */
-    justify-content: center; /* Centraliza horizontalmente */
-    padding: 20px;
+    align-items: center; 
+    justify-content: center;
     width: 100%;
+    /* Removido o padding lateral para o botão encostar na tela no mobile */
+    padding: 20px 0; 
 }
 
-/* GRADE DE BOTÕES */
+/* GRADE DE BOTÕES SEM FUNDO (TRANSPARENTE) */
 .button-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 colunas no Desktop */
+    grid-template-columns: repeat(2, 1fr);
     gap: 15px;
     width: 100%;
-    max-width: 550px;
-    background: var(--glass);
-    padding: 30px;
-    border-radius: 25px;
-    border: 1px solid var(--border);
-    backdrop-filter: blur(15px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+    max-width: 600px;
+    background: transparent; /* REMOVIDO O FUNDO DO CONTAINER */
+    padding: 10px;
+    border: none; /* REMOVIDA A BORDA DO CONTAINER */
+    box-shadow: none; /* REMOVIDA A SOMBRA DO CONTAINER */
 }
 
 .group-label {
     grid-column: span 2;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: var(--lilac-neon);
     text-transform: uppercase;
     letter-spacing: 4px;
     font-weight: 900;
     text-align: center;
-    margin-bottom: 15px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid rgba(168, 85, 247, 0.3);
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
 }
 
-/* ESTILO DOS BOTÕES (MAIORES E ROBUSTOS) */
+/* ESTILO DOS BOTÕES (MAIS BAIXOS E LARGOS) */
 .btn-side {
-    background: rgba(168, 85, 247, 0.08);
+    background: rgba(168, 85, 247, 0.15); /* Fundo leve para leitura */
     color: var(--text-white);
-    border: 1px solid var(--border);
-    padding: 25px 15px; /* Altura aumentada */
-    border-radius: 18px;
-    font-weight: 900;
+    border: 2px solid var(--border);
+    padding: 18px 10px; /* ALTURA REDUZIDA */
+    border-radius: 12px;
+    font-weight: 800;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    outline: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px); /* Efeito de vidro apenas no botão */
 }
 
 .btn-side:hover {
     background: var(--lilac-neon);
     color: #000;
-    transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(168, 85, 247, 0.5);
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.6);
 }
 
-.btn-side:active {
-    transform: scale(0.95); /* Efeito de clique físico */
-}
-
-/* AJUSTES PARA MOBILE (S25 / A21S / IPHONE) */
+/* --- AJUSTES PARA MOBILE (S25 / A21S) --- */
 @media (max-width: 600px) {
     .button-grid {
-        grid-template-columns: 1fr; /* 4 botões um embaixo do outro */
-        gap: 15px;
-        padding: 25px 20px;
-        max-width: 340px;
-    }
-
-    .group-label {
-        grid-column: span 1;
-        font-size: 0.75rem;
+        grid-template-columns: 1fr; /* Empilhados */
+        gap: 12px;
+        padding: 0; /* Remove padding lateral do grid */
+        max-width: 100%; /* Ocupa a largura total */
     }
 
     .btn-side {
-        padding: 30px 20px; /* BEM MAIORES NO CELULAR */
+        padding: 22px 20px; /* Altura confortável mas não excessiva */
         font-size: 1rem;
-        border-width: 2px; /* Destaque visual */
+        border-radius: 0; /* Opcional: botões retos nas laterais se quiser encostar 100% */
+        width: 100%; /* Garante preenchimento lateral */
+        border-left: none; /* Remove bordas laterais para parecer que nasce da tela */
+        border-right: none;
     }
 
-    .titulo-portal { font-size: 1rem; }
-    .logo-premium { max-width: 85px; }
+    .dashboard-container {
+        padding: 20px 0; /* Garante que encoste nas bordas esquerda/direita */
+    }
 }
 
 /* IFRAME FULLSCREEN */
@@ -159,35 +150,29 @@ body {
 }
 
 .servico-header { 
-    padding: 15px; 
+    padding: 12px; 
     background: #000; 
     border-bottom: 2px solid var(--lilac-neon); 
-    display: flex;
 }
 
 .btn-voltar {
     background: #ef4444; 
     color: #fff; 
     border: none; 
-    padding: 10px 20px;
-    border-radius: 10px; 
-    font-weight: 900; 
-    cursor: pointer;
-    text-transform: uppercase;
-    font-size: 0.8rem;
+    padding: 10px 18px;
+    border-radius: 8px; 
+    font-weight: 900;
 }
 
 /* RODAPÉ */
 .main-footer { 
     text-align: center; 
-    padding: 20px; 
-    background: rgba(0,0,0,0.6); 
-    z-index: 10;
+    padding: 15px; 
+    background: rgba(0,0,0,0.7); 
 }
 
 .credits { 
     font-size: 0.65rem; 
-    opacity: 0.7; 
+    opacity: 0.8; 
     margin: 0; 
-    line-height: 1.5;
 }
