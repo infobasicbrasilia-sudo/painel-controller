@@ -1,119 +1,193 @@
+/* CONFIGURAÇÕES GLOBAIS E CORES */
 :root {
     --bg-dark: #070310;
     --lilac-neon: #a855f7;
     --glass: rgba(18, 12, 33, 0.9);
     --border: rgba(168, 85, 247, 0.4);
+    --text-white: #ffffff;
 }
 
-* { box-sizing: border-box; }
+* { 
+    box-sizing: border-box; 
+    -webkit-tap-highlight-color: transparent; /* Remove o brilho azul ao tocar no celular */
+}
 
 body {
-    margin: 0; padding: 0; min-height: 100vh;
-    display: flex; flex-direction: column;
+    margin: 0; 
+    padding: 0; 
+    min-height: 100vh;
+    display: flex; 
+    flex-direction: column;
     overflow-x: hidden;
-    color: #fff; font-family: 'Inter', sans-serif;
+    color: var(--text-white); 
+    font-family: 'Inter', sans-serif;
+    
+    /* FUNDO PREMIUM COM A LOGO BRASIL IA */
     background: 
         radial-gradient(circle, rgba(26, 11, 46, 0.8) 0%, rgba(7, 3, 16, 0.9) 100%),
         url('../BrasilIALogo.png') no-repeat center center fixed;
     background-size: cover;
 }
 
+/* CABEÇALHO */
 .premium-header {
-    padding: 15px 10px; text-align: center; background: rgba(0, 0, 0, 0.85);
+    padding: 20px 10px; 
+    text-align: center; 
+    background: rgba(0, 0, 0, 0.85);
     border-bottom: 2px solid var(--lilac-neon);
     z-index: 10;
 }
 
-.logo-premium { max-width: 80px; filter: drop-shadow(0 0 8px var(--lilac-neon)); }
-.titulo-portal { font-size: 1rem; letter-spacing: 2px; font-weight: 900; margin: 5px 0; }
+.logo-premium { 
+    max-width: 100px; 
+    filter: drop-shadow(0 0 10px var(--lilac-neon)); 
+}
 
+.titulo-portal { 
+    font-size: 1.2rem; 
+    letter-spacing: 3px; 
+    font-weight: 900; 
+    margin: 10px 0; 
+    text-transform: uppercase;
+}
+
+/* CONTEÚDO CENTRALIZADO */
 .dashboard-container {
     flex: 1; 
     display: flex; 
-    align-items: center; 
-    justify-content: center;
-    padding: 15px;
+    align-items: center;    /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    padding: 20px;
+    width: 100%;
 }
 
+/* GRADE DE BOTÕES */
 .button-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 colunas no Desktop */
-    gap: 12px;
+    gap: 15px;
     width: 100%;
-    max-width: 450px;
+    max-width: 550px;
     background: var(--glass);
-    padding: 20px;
-    border-radius: 20px;
+    padding: 30px;
+    border-radius: 25px;
     border: 1px solid var(--border);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.7);
 }
 
 .group-label {
     grid-column: span 2;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     color: var(--lilac-neon);
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     font-weight: 900;
     text-align: center;
-    margin-bottom: 8px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+    margin-bottom: 15px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(168, 85, 247, 0.3);
 }
 
+/* ESTILO DOS BOTÕES (MAIORES E ROBUSTOS) */
 .btn-side {
-    background: rgba(255,255,255,0.03);
-    color: #fff;
+    background: rgba(168, 85, 247, 0.08);
+    color: var(--text-white);
     border: 1px solid var(--border);
-    padding: 15px 10px; /* Altura equilibrada */
-    border-radius: 12px;
-    font-weight: 700;
+    padding: 25px 15px; /* Altura aumentada */
+    border-radius: 18px;
+    font-weight: 900;
     cursor: pointer;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     text-transform: uppercase;
-    transition: 0.2s ease;
+    letter-spacing: 1px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
 }
 
 .btn-side:hover {
     background: var(--lilac-neon);
     color: #000;
-    transform: scale(1.02);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(168, 85, 247, 0.5);
 }
 
-/* --- MODO MOBILE (S25 / A21s) --- */
+.btn-side:active {
+    transform: scale(0.95); /* Efeito de clique físico */
+}
+
+/* AJUSTES PARA MOBILE (S25 / A21S / IPHONE) */
 @media (max-width: 600px) {
     .button-grid {
         grid-template-columns: 1fr; /* 4 botões um embaixo do outro */
-        gap: 10px;
-        padding: 15px;
-        max-width: 320px; /* Mais estreito para mobile */
+        gap: 15px;
+        padding: 25px 20px;
+        max-width: 340px;
     }
-    
-    .group-label { 
-        grid-column: span 1; 
-        font-size: 0.7rem;
-    }
-    
-    .btn-side { 
-        padding: 14px; /* Altura ideal para o polegar sem ocupar a tela toda */
+
+    .group-label {
+        grid-column: span 1;
         font-size: 0.75rem;
     }
 
-    .titulo-portal { font-size: 0.9rem; }
+    .btn-side {
+        padding: 30px 20px; /* BEM MAIORES NO CELULAR */
+        font-size: 1rem;
+        border-width: 2px; /* Destaque visual */
+    }
+
+    .titulo-portal { font-size: 1rem; }
+    .logo-premium { max-width: 85px; }
 }
 
+/* IFRAME FULLSCREEN */
 .iframe-wrapper {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: var(--bg-dark); z-index: 100; display: flex; flex-direction: column;
+    position: fixed; 
+    top: 0; left: 0; 
+    width: 100%; height: 100%;
+    background: var(--bg-dark); 
+    z-index: 100; 
+    display: flex; 
+    flex-direction: column;
 }
 
-#frame-servico { width: 100%; flex: 1; border: none; background: #fff; }
+#frame-servico { 
+    width: 100%; 
+    flex: 1; 
+    border: none; 
+    background: #fff; 
+}
 
-.servico-header { padding: 10px; background: #000; border-bottom: 2px solid var(--lilac-neon); }
+.servico-header { 
+    padding: 15px; 
+    background: #000; 
+    border-bottom: 2px solid var(--lilac-neon); 
+    display: flex;
+}
+
 .btn-voltar {
-    background: #ef4444; color: #fff; border: none; padding: 8px 15px;
-    border-radius: 6px; font-weight: 800; cursor: pointer;
+    background: #ef4444; 
+    color: #fff; 
+    border: none; 
+    padding: 10px 20px;
+    border-radius: 10px; 
+    font-weight: 900; 
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.8rem;
 }
 
-.main-footer { text-align: center; padding: 10px; background: rgba(0,0,0,0.5); }
-.credits { font-size: 0.6rem; opacity: 0.7; margin: 0; }
+/* RODAPÉ */
+.main-footer { 
+    text-align: center; 
+    padding: 20px; 
+    background: rgba(0,0,0,0.6); 
+    z-index: 10;
+}
+
+.credits { 
+    font-size: 0.65rem; 
+    opacity: 0.7; 
+    margin: 0; 
+    line-height: 1.5;
+}
