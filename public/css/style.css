@@ -31,7 +31,7 @@ body {
     /* --- FUNDO OCUPANDO TODO O ESPAÇO (COVER) --- */
     background: 
         radial-gradient(circle, rgba(26, 11, 46, 0.4) 0%, rgba(7, 3, 16, 0.9) 100%),
-        url('../cyberin1.png') no-repeat center center fixed;
+        url('../Cyberin.png') no-repeat center center fixed;
     background-size: cover; /* ALTERADO DE 'CONTAIN' PARA 'COVER' */
     background-color: var(--bg-dark);
 }
