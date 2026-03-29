@@ -17,40 +17,19 @@
     <main class="dashboard-container">
         
         <nav id="menu-principal" class="button-grid">
-            <div class="group-label">NOSSOS SERVIÇOS</div>
+            <div class="group-label">SERVIÇOS DISPONÍVEIS</div>
             
-            <button class="btn-side" onclick="abrirServico('docs')">
-                <span class="icon">📄</span> 
-                <span class="label">CONVERTER PDF</span>
-            </button>
-            
-            <button class="btn-side" onclick="abrirServico('video')">
-                <span class="icon">🎬</span> 
-                <span class="label">MP4 PARA MP3</span>
-            </button>
-            
-            <button class="btn-side" onclick="abrirServico('senha')">
-                <span class="icon">🔐</span> 
-                <span class="label">GERAR SENHA</span>
-            </button>
-            
-            <button class="btn-side" onclick="abrirServico('img')">
-                <span class="icon">🖼️</span> 
-                <span class="label">REMOVER FUNDO</span>
-            </button>
+            <button class="btn-side" onclick="abrirServico('docs')">CONVERTER PDF</button>
+            <button class="btn-side" onclick="abrirServico('video')">MP4 PARA MP3</button>
+            <button class="btn-side" onclick="abrirServico('senha')">GERAR SENHA</button>
+            <button class="btn-side" onclick="abrirServico('img')">REMOVER FUNDO</button>
         </nav>
 
         <section id="container-servico" class="iframe-wrapper" style="display: none;">
             <div class="servico-header">
-                <button class="btn-voltar" onclick="fecharServico()">⬅ VOLTAR AO MENU</button>
+                <button class="btn-voltar" onclick="fecharServico()">⬅ VOLTAR</button>
             </div>
-            <iframe 
-                id="frame-servico" 
-                src="" 
-                frameborder="0" 
-                allow="clipboard-write" 
-                allowfullscreen>
-            </iframe>
+            <iframe id="frame-servico" src="" frameborder="0" allow="clipboard-write" allowfullscreen></iframe>
         </section>
 
     </main>
