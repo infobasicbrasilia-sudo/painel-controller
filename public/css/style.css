@@ -1,15 +1,16 @@
-/* CONFIGURAÇÕES GLOBAIS - PALETA CYBERPUNK */
+/* CONFIGURAÇÕES GLOBAIS - PALETA SÓBRIA COM ROXO */
 :root {
-    --bg-dark: #05010d;
-    --neon-cyan: #00f3ff; /* Azul Elétrico Cyberpunk */
-    --neon-purple: #bc13fe;
-    --border-glow: rgba(0, 243, 255, 0.5);
+    --bg-dark: #070310;
+    --roxo-principal: #a855f7; /* Roxo vibrante para bordas e destaques */
+    --roxo-fundo-botao: #6b21a8; /* Roxo mais escuro e sóbrio para o fundo do botão */
+    --roxo-hover: #7e22ce; /* Roxo para o efeito de hover */
+    --border: rgba(168, 85, 247, 0.4);
     --text-white: #ffffff;
 }
 
 * { 
     box-sizing: border-box; 
-    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent; /* Remove brilho de toque no mobile */
 }
 
 body {
@@ -18,37 +19,37 @@ body {
     overflow-x: hidden;
     color: var(--text-white); 
     font-family: 'Inter', sans-serif;
+    
+    /* Fundo com a logo Brasil IA cobrindo tudo */
     background: 
-        radial-gradient(circle, rgba(13, 2, 33, 0.8) 0%, rgba(5, 1, 13, 0.95) 100%),
+        radial-gradient(circle, rgba(26, 11, 46, 0.8) 0%, rgba(7, 3, 16, 0.9) 100%),
         url('../BrasilIALogo.png') no-repeat center center fixed;
     background-size: cover;
 }
 
-/* CABEÇALHO */
+/* CABEÇALHO SÓBRIO */
 .premium-header {
     padding: 15px 10px; 
     text-align: center; 
-    background: rgba(0, 0, 0, 0.9);
-    border-bottom: 2px solid var(--neon-cyan);
-    box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+    background: rgba(0, 0, 0, 0.85);
+    border-bottom: 2px solid var(--roxo-principal);
     z-index: 10;
 }
 
 .logo-premium { 
-    max-width: 85px; 
-    filter: drop-shadow(0 0 8px var(--neon-cyan)); 
+    max-width: 80px; 
+    filter: drop-shadow(0 0 5px rgba(168, 85, 247, 0.5)); 
 }
 
 .titulo-portal { 
     font-size: 1.1rem; 
-    letter-spacing: 3px; 
+    letter-spacing: 2px; 
     font-weight: 900; 
     margin: 8px 0; 
-    color: var(--neon-cyan);
-    text-shadow: 0 0 5px var(--neon-cyan);
+    text-transform: uppercase;
 }
 
-/* CONTAINER */
+/* CONTAINER CENTRALIZADO */
 .dashboard-container {
     flex: 1; 
     display: flex; 
@@ -61,67 +62,69 @@ body {
 /* GRADE VERTICAL */
 .button-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 15px;
+    grid-template-columns: 1fr; /* Um botão abaixo do outro */
+    gap: 12px; /* Espaçamento curto entre botões */
     width: 100%;
-    max-width: 400px;
+    max-width: 450px; /* Largura controlada para Desktop */
     background: transparent;
 }
 
 .group-label {
     font-size: 0.8rem;
-    color: var(--text-white);
+    color: var(--roxo-principal);
     text-transform: uppercase;
-    letter-spacing: 4px;
+    letter-spacing: 3px;
     font-weight: 900;
     text-align: center;
     margin-bottom: 10px;
-    opacity: 0.8;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(168, 85, 247, 0.2);
 }
 
-/* BOTÕES ARREDONDADOS CYBERPUNK */
+/* ESTILO DOS BOTÕES ARREDONDADOS E ROXOS */
 .btn-side {
-    background: rgba(0, 243, 255, 0.05);
-    color: var(--neon-cyan);
-    border: 2px solid var(--neon-cyan);
-    padding: 18px; 
-    /* Arredondamento maior para estilo pílula/arredondado */
-    border-radius: 50px; 
-    font-weight: 900;
+    background: var(--roxo-fundo-botao); /* Fundo Roxo Simples */
+    color: var(--text-white); /* Fonte Branca */
+    border: 2px solid var(--roxo-principal); /* Borda Roxo Vibrante */
+    padding: 18px 20px; /* Altura equilibrada para toque e leitura */
+    border-radius: 50px; /* BORDAS ARREDONDADAS (Estilo Pílula) */
+    font-weight: 800; /* Texto grosso e legível */
     cursor: pointer;
     font-size: 0.9rem;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    backdrop-filter: blur(4px);
-    box-shadow: inset 0 0 10px rgba(0, 243, 255, 0.1), 0 0 5px rgba(0, 243, 255, 0.2);
+    letter-spacing: 1px;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(5px);
+    outline: none;
 }
 
 .btn-side:hover {
-    background: var(--neon-cyan);
-    color: #000;
-    box-shadow: 0 0 30px var(--neon-cyan);
-    transform: scale(1.05);
+    background: var(--roxo-hover); /* Efeito de brilho ao passar o mouse */
+    box-shadow: 0 5px 15px rgba(168, 85, 247, 0.4);
 }
 
 .btn-side:active {
-    transform: scale(0.95);
+    background: var(--roxo-principal);
+    transform: scale(0.97); /* Efeito de clique físico */
 }
 
-/* RESPONSIVIDADE MOBILE (S25 / A21S) */
+/* --- AJUSTES EXCLUSIVOS MOBILE (S25 / A21s) --- */
 @media (max-width: 600px) {
     .dashboard-container { padding: 15px; }
     
     .button-grid {
         max-width: 100%;
-        gap: 12px;
+        gap: 10px; /* Menor espaçamento vertical no celular */
     }
-
-    .btn-side {
-        padding: 22px; /* Altura confortável para o toque */
-        font-size: 0.95rem;
+    
+    .btn-side { 
+        padding: 22px 20px; /* Um pouco mais alto no celular para o toque */
+        font-size: 0.95rem;    /* Texto maior */
         border-width: 2px;
     }
+
+    .titulo-portal { font-size: 1rem; }
+    .logo-premium { max-width: 80px; }
 }
 
 /* IFRAME FULLSCREEN */
@@ -137,34 +140,18 @@ body {
 
 #frame-servico { width: 100%; flex: 1; border: none; background: #fff; }
 
-.servico-header { 
-    padding: 12px; 
-    background: #000; 
-    border-bottom: 2px solid var(--neon-cyan); 
-}
-
+.servico-header { padding: 10px; background: #000; border-bottom: 2px solid var(--roxo-principal); }
 .btn-voltar {
-    background: #ff0055; /* Rosa Choque para o botão de sair */
+    background: #ef4444; /* Vermelho padrão para o botão de sair */
     color: #fff; 
     border: none; 
-    padding: 10px 20px;
+    padding: 8px 15px;
     border-radius: 30px; 
     font-weight: 900;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    font-size: 0.8rem;
-    box-shadow: 0 0 10px rgba(255, 0, 85, 0.4);
 }
 
-/* RODAPÉ */
-.main-footer { 
-    text-align: center; 
-    padding: 15px; 
-    background: rgba(0,0,0,0.8); 
-}
-
-.credits { 
-    font-size: 0.65rem; 
-    color: var(--neon-cyan);
-    opacity: 0.6; 
-    margin: 0; 
-}
+/* RODAPÉ COMPACTO */
+.main-footer { text-align: center; padding: 15px; background: rgba(0,0,0,0.8); }
+.credits { font-size: 0.6rem; opacity: 0.7; margin: 0; }
