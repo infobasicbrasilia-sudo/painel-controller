@@ -31,7 +31,7 @@ body {
     /* --- FUNDO PADRÃO (MOBILE) --- */
     background: 
         radial-gradient(circle, rgba(26, 11, 46, 0.4) 0%, rgba(7, 3, 16, 0.9) 100%),
-        url('../Cyberin.png') no-repeat center 40% fixed;
+        url('../cyberin1.png') no-repeat center 40% fixed;
     background-size: 85%; /* Tamanho para mobile */
     background-color: var(--bg-dark);
 }
