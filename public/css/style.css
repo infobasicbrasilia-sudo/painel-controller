@@ -2,7 +2,7 @@
 :root {
     --bg-dark: #070310;
     --lilac-neon: #a855f7;
-    --border: rgba(168, 85, 247, 0.6); /* Borda um pouco mais visível já que não tem fundo */
+    --border: rgba(168, 85, 247, 0.5);
     --text-white: #ffffff;
 }
 
@@ -28,9 +28,9 @@ body {
     background-size: cover;
 }
 
-/* CABEÇALHO */
+/* CABEÇALHO COMPACTO */
 .premium-header {
-    padding: 15px 10px; 
+    padding: 12px 10px; 
     text-align: center; 
     background: rgba(0, 0, 0, 0.85);
     border-bottom: 2px solid var(--lilac-neon);
@@ -38,15 +38,15 @@ body {
 }
 
 .logo-premium { 
-    max-width: 90px; 
+    max-width: 80px; 
     filter: drop-shadow(0 0 10px var(--lilac-neon)); 
 }
 
 .titulo-portal { 
-    font-size: 1.1rem; 
+    font-size: 1rem; 
     letter-spacing: 2px; 
     font-weight: 900; 
-    margin: 8px 0; 
+    margin: 5px 0; 
     text-transform: uppercase;
 }
 
@@ -57,77 +57,70 @@ body {
     align-items: center; 
     justify-content: center;
     width: 100%;
-    /* Removido o padding lateral para o botão encostar na tela no mobile */
-    padding: 20px 0; 
+    padding: 10px 0; /* Padding vertical reduzido */
 }
 
-/* GRADE DE BOTÕES SEM FUNDO (TRANSPARENTE) */
+/* GRADE DE BOTÕES (SEMPRE UMA COLUNA) */
 .button-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    grid-template-columns: 1fr; /* FORÇA UM ABAIXO DO OUTRO SEMPRE */
+    gap: 10px; /* Espaçamento curto entre botões */
     width: 100%;
-    max-width: 600px;
-    background: transparent; /* REMOVIDO O FUNDO DO CONTAINER */
-    padding: 10px;
-    border: none; /* REMOVIDA A BORDA DO CONTAINER */
-    box-shadow: none; /* REMOVIDA A SOMBRA DO CONTAINER */
+    max-width: 500px; /* No Desktop não fica largo demais */
+    background: transparent;
+    padding: 0; 
+    border: none;
 }
 
 .group-label {
-    grid-column: span 2;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--lilac-neon);
     text-transform: uppercase;
-    letter-spacing: 4px;
+    letter-spacing: 3px;
     font-weight: 900;
     text-align: center;
-    margin-bottom: 20px;
-    text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+    margin-bottom: 15px;
+    text-shadow: 0 0 8px rgba(168, 85, 247, 0.5);
 }
 
-/* ESTILO DOS BOTÕES (MAIS BAIXOS E LARGOS) */
+/* ESTILO DOS BOTÕES (MAIS BAIXOS E LARGURA TOTAL) */
 .btn-side {
-    background: rgba(168, 85, 247, 0.15); /* Fundo leve para leitura */
+    background: rgba(168, 85, 247, 0.15);
     color: var(--text-white);
-    border: 2px solid var(--border);
-    padding: 18px 10px; /* ALTURA REDUZIDA */
-    border-radius: 12px;
+    border: 1px solid var(--border);
+    padding: 16px 15px; /* Altura reduzida para caber tudo sem scroll */
+    border-radius: 0; /* Opcional: Deixei reto para preencher as laterais no mobile */
     font-weight: 800;
     cursor: pointer;
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(5px); /* Efeito de vidro apenas no botão */
+    transition: all 0.2s ease;
+    backdrop-filter: blur(5px);
+    width: 100%; /* Garante preenchimento total */
+    border-left: none; /* Remove borda lateral para encostar na tela */
+    border-right: none;
 }
 
 .btn-side:hover {
     background: var(--lilac-neon);
     color: #000;
-    box-shadow: 0 0 20px rgba(168, 85, 247, 0.6);
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
 }
 
-/* --- AJUSTES PARA MOBILE (S25 / A21S) --- */
+.btn-side:active {
+    background: rgba(168, 85, 247, 0.4);
+}
+
+/* --- AJUSTE RESPONSIVO MOBILE (S25 / A21S) --- */
 @media (max-width: 600px) {
     .button-grid {
-        grid-template-columns: 1fr; /* Empilhados */
-        gap: 12px;
-        padding: 0; /* Remove padding lateral do grid */
-        max-width: 100%; /* Ocupa a largura total */
+        max-width: 100%; /* No celular usa a largura toda da tela */
     }
-
+    
     .btn-side {
-        padding: 22px 20px; /* Altura confortável mas não excessiva */
-        font-size: 1rem;
-        border-radius: 0; /* Opcional: botões retos nas laterais se quiser encostar 100% */
-        width: 100%; /* Garante preenchimento lateral */
-        border-left: none; /* Remove bordas laterais para parecer que nasce da tela */
-        border-right: none;
-    }
-
-    .dashboard-container {
-        padding: 20px 0; /* Garante que encoste nas bordas esquerda/direita */
+        padding: 20px 15px; /* Um pouco mais de altura no mobile para o toque */
+        font-size: 0.9rem;
     }
 }
 
@@ -150,7 +143,7 @@ body {
 }
 
 .servico-header { 
-    padding: 12px; 
+    padding: 10px; 
     background: #000; 
     border-bottom: 2px solid var(--lilac-neon); 
 }
@@ -159,20 +152,21 @@ body {
     background: #ef4444; 
     color: #fff; 
     border: none; 
-    padding: 10px 18px;
-    border-radius: 8px; 
+    padding: 8px 15px;
+    border-radius: 6px; 
     font-weight: 900;
+    font-size: 0.75rem;
 }
 
-/* RODAPÉ */
+/* RODAPÉ COMPACTO */
 .main-footer { 
     text-align: center; 
-    padding: 15px; 
-    background: rgba(0,0,0,0.7); 
+    padding: 10px; 
+    background: rgba(0,0,0,0.8); 
 }
 
 .credits { 
-    font-size: 0.65rem; 
+    font-size: 0.6rem; 
     opacity: 0.8; 
     margin: 0; 
 }
