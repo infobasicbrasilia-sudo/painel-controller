@@ -1,9 +1,9 @@
-/* CONFIGURAÇÕES GLOBAIS - PALETA BRASIL IA + VERDE NEON */
+/* CONFIGURAÇÕES GLOBAIS - PALETA BRASIL IA */
 :root {
     --bg-dark: #05010a; 
     --roxo-interface: #a855f7; 
     --roxo-fundo-botao: #6b21a8; 
-    --verde-neon: #00ff66; /* Verde Vibrante para o Hover */
+    --verde-neon: #00ff66; 
     --text-white: #ffffff;
 }
 
@@ -13,21 +13,20 @@
 }
 
 body {
-    margin: 0; padding: 0; min-height: 100vh;
+    margin: 0; padding: 0; height: 100vh; /* Trava na altura da tela */
     display: flex; flex-direction: column;
-    overflow-x: hidden;
+    overflow: hidden; /* Evita scroll desnecessário no menu */
     color: var(--text-white); 
     font-family: 'Inter', sans-serif;
-    
     background: 
         radial-gradient(circle, rgba(26, 11, 46, 0.8) 0%, rgba(7, 3, 16, 0.9) 100%),
         url('../BrasilIALogo.png') no-repeat center center fixed;
     background-size: cover;
 }
 
-/* CABEÇALHO */
+/* CABEÇALHO ULTRA-COMPACTO */
 .premium-header {
-    padding: 15px 10px; 
+    padding: 8px 5px; /* Reduzido de 15px para 8px */
     text-align: center; 
     background: rgba(0, 0, 0, 0.85);
     border-bottom: 2px solid var(--roxo-interface);
@@ -35,15 +34,15 @@ body {
 }
 
 .logo-premium { 
-    max-width: 80px; 
+    max-width: 65px; /* Reduzido de 80px para 65px */
     filter: drop-shadow(0 0 5px rgba(168, 85, 247, 0.5)); 
 }
 
 .titulo-portal { 
-    font-size: 1.1rem; 
-    letter-spacing: 2px; 
+    font-size: 0.9rem; /* Reduzido de 1.1rem */
+    letter-spacing: 1px; 
     font-weight: 900; 
-    margin: 8px 0; 
+    margin: 2px 0; 
     text-transform: uppercase;
 }
 
@@ -54,94 +53,78 @@ body {
     align-items: center; 
     justify-content: center;
     width: 100%;
-    padding: 20px;
+    padding: 10px;
 }
 
 /* GRADE VERTICAL */
 .button-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 8px; /* Espaço entre botões reduzido para 8px */
     width: 100%;
-    max-width: 450px;
+    max-width: 400px;
     background: transparent;
 }
 
 .group-label {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: var(--roxo-interface);
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     font-weight: 900;
     text-align: center;
-    margin-bottom: 10px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+    margin-bottom: 5px;
 }
 
-/* BOTÕES ARREDONDADOS */
+/* BOTÕES SLIM ARREDONDADOS */
 .btn-side {
     background: var(--roxo-fundo-botao);
     color: var(--text-white);
-    border: 2px solid var(--roxo-interface);
-    padding: 18px 20px; 
+    border: 1px solid var(--roxo-interface);
+    padding: 14px 20px; /* Altura reduzida de 18px para 14px */
     border-radius: 50px;
     font-weight: 800;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease; /* Transição suave para o verde */
+    transition: all 0.2s ease;
     backdrop-filter: blur(5px);
     outline: none;
 }
 
-/* --- EFEITO VERDE AO PASSAR O MOUSE/TOQUE --- */
 .btn-side:hover {
-    background: var(--verde-neon); /* Fundo fica Verde */
-    color: #000; /* Texto muda para preto para dar contraste no verde */
+    background: var(--verde-neon);
+    color: #000;
     border-color: var(--verde-neon);
-    box-shadow: 0 0 20px rgba(0, 255, 102, 0.6); /* Brilho verde */
-    transform: translateY(-2px); /* Leve subida */
+    box-shadow: 0 0 15px rgba(0, 255, 102, 0.5);
 }
 
-.btn-side:active {
-    transform: scale(0.95);
-}
-
-/* MOBILE ADJUSTMENTS */
+/* MOBILE ADJUSTMENTS (S25 / A21s) */
 @media (max-width: 600px) {
-    .dashboard-container { padding: 15px; }
-    .button-grid { max-width: 100%; }
     .btn-side { 
-        padding: 22px 20px; 
-        font-size: 0.95rem; 
+        padding: 16px 20px; /* Um pouco maior que o desktop para facilitar o toque */
+        font-size: 0.9rem; 
     }
+    .titulo-portal { font-size: 0.85rem; }
 }
 
 /* IFRAME FULLSCREEN */
 .iframe-wrapper {
-    position: fixed; 
-    top: 0; left: 0; 
-    width: 100%; height: 100%;
-    background: var(--bg-dark); 
-    z-index: 100; 
-    display: flex; 
-    flex-direction: column;
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--bg-dark); z-index: 100; display: flex; flex-direction: column;
 }
-
 #frame-servico { width: 100%; flex: 1; border: none; background: #fff; }
 
-.servico-header { padding: 10px; background: #000; border-bottom: 2px solid var(--roxo-interface); }
+.servico-header { padding: 8px; background: #000; border-bottom: 2px solid var(--roxo-interface); }
 .btn-voltar {
-    background: #ef4444; 
-    color: #fff; 
-    border: none; 
-    padding: 8px 15px;
-    border-radius: 30px; 
-    font-weight: 900;
+    background: #ef4444; color: #fff; border: none; padding: 6px 12px;
+    border-radius: 20px; font-weight: 900; font-size: 0.7rem;
 }
 
-/* RODAPÉ */
-.main-footer { text-align: center; padding: 15px; background: rgba(0,0,0,0.8); }
-.credits { font-size: 0.6rem; opacity: 0.8; margin: 0; }
+/* RODAPÉ COMPACTO */
+.main-footer { 
+    text-align: center; 
+    padding: 8px; /* Reduzido de 15px para 8px */
+    background: rgba(0,0,0,0.8); 
+}
+.credits { font-size: 0.55rem; opacity: 0.8; margin: 0; }
