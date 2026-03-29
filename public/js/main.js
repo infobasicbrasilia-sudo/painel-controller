@@ -15,7 +15,7 @@ function abrirServico(tipo) {
     if (url) {
         iframe.src = url;
         container.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden'; 
     }
 }
 
@@ -24,6 +24,6 @@ function fecharServico() {
     const iframe = document.getElementById('frame-servico');
 
     container.style.display = 'none';
-    iframe.src = "";
-    document.body.style.overflow = 'auto';
+    iframe.src = ""; 
+    document.body.style.overflow = 'auto'; 
 }
