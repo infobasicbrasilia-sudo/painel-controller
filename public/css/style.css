@@ -1,90 +1,41 @@
-/* CONFIGURAÇÕES GLOBAIS - TEMA BRASIL IA CYBERPUNK SÓBRIO */
-:root {
-    --bg-dark: #05010a; 
-    --roxo-interface: #a855f7; 
-    --roxo-fundo-botao: #6b21a8; 
-    --verde-neon: #00ff66; 
-    --text-white: #ffffff;
-    
-    /* Cores Cyberpunk adicionais para a logo */
-    --neon-blue: #00f3ff;
-    --neon-pink: #ff00ff;
-}
-
-* { 
-    box-sizing: border-box; 
-    -webkit-tap-highlight-color: transparent;
-}
-
-/* TRAVA A TELA PARA NÃO ROLAR */
-html, body {
-    margin: 0; 
-    padding: 0; 
-    height: 100%; /* Ocupa 100% da altura da janela */
-    width: 100%;
-    overflow: hidden; /* PROÍBE O SCROLL TOTAL */
-}
-
-body {
-    display: flex; 
-    flex-direction: column;
-    color: var(--text-white); 
-    font-family: 'Inter', sans-serif;
-    background: 
-        radial-gradient(circle, rgba(26, 11, 46, 0.8) 0%, rgba(7, 3, 16, 0.9) 100%),
-        url('../BrasilIALogo.png') no-repeat center center fixed;
-    background-size: cover;
-}
-
-/* HEADER - COM LOGO ESTILIZADA NEON */
+/* HEADER - ULTRA SLIM (HORIZONTAL) */
 .premium-header {
-    flex: 0 0 5%; /* Aumentei um pouco para dar destaque à logo estilizada */
+    flex: 0 0 7%; /* Reduzido drasticamente */
     display: flex;
-    flex-direction: column;
+    flex-direction: row; /* Logo e Título na mesma linha */
     align-items: center;
     justify-content: center;
+    gap: 15px; /* Espaço entre logo e texto */
     background: rgba(0, 0, 0, 0.95);
     border-bottom: 2px solid var(--roxo-interface);
-    box-shadow: 0 5px 15px rgba(168, 85, 247, 0.2); /* Sombra suave no header */
+    padding: 0 10px;
 }
 
-/* --- ESTILO NEON CYBERPUNK NA LOGO --- */
+/* LOGO AJUSTADA PARA O TOPO FINO */
 .logo-premium { 
-    height: 25%; /* Proporcional ao header */
+    height: 80%; /* Ocupa quase toda a altura desse header fino */
     width: auto;
-    /* Efeito de brilho intenso Ciano/Roxo */
     filter: 
-        drop-shadow(0 0 10px var(--neon-blue)) /* Brilho Ciano */
-        drop-shadow(0 0 20px var(--neon-pink)) /* Brilho Rosa/Roxo Profundo */
-        drop-shadow(0 0 5px #fff); /* Brilho interno branco para nitidez */
-    transition: filter 0.3s ease; /* Transição suave */
-}
-
-/* Efeito ao passar o mouse ou tocar na logo */
-.logo-premium:hover {
-    filter: 
-        drop-shadow(0 0 15px var(--neon-blue)) 
-        drop-shadow(0 0 25px var(--neon-pink)) 
-        drop-shadow(0 0 8px #fff);
+        drop-shadow(0 0 8px var(--neon-blue)) 
+        drop-shadow(0 0 15px var(--neon-pink));
 }
 
 .titulo-portal { 
-    font-size: 1.1rem; /* Nítido para idosos */
+    font-size: 0.9rem; /* Diminuído para caber na horizontal */
     font-weight: 900; 
-    margin: 5px 0 0 0; 
+    margin: 0; 
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     color: var(--text-white);
-    text-shadow: 0 0 8px rgba(168, 85, 247, 0.5); /* Sombra no texto */
 }
 
-/* ÁREA CENTRAL - DINÂMICA */
+/* AJUSTE NA ÁREA CENTRAL PARA GANHAR ESPAÇO */
 .dashboard-container {
     flex: 1; 
     display: flex; 
     flex-direction: column;
     align-items: center; 
-    justify-content: space-evenly; 
+    justify-content: center; /* Centraliza o bloco de botões */
     padding: 10px;
 }
 
@@ -94,80 +45,22 @@ body {
     gap: 8px; 
     width: 100%;
     max-width: 420px;
-    height: 100%; 
-    justify-content: center;
+    /* Removido o height 100% para os botões não esticarem demais e sumirem com o rodapé */
 }
 
-/* DESTAQUE NOSSOS SERVIÇOS - ACESSÍVEL */
-.group-label {
-    font-size: 1.3rem; 
-    color: #fff;
-    background: rgba(168, 85, 247, 0.5); 
-    padding: 10px;
-    border-radius: 12px;
-    text-transform: uppercase;
-    font-weight: 900;
-    text-align: center;
-    margin-bottom: 8px;
-    border: 2px solid var(--roxo-interface);
-}
-
-/* BOTÕES ADAPTÁVEIS ROBUSTOS */
-.btn-side {
-    flex: 1; 
-    max-height: 65px; 
-    min-height: 48px;
-    background: var(--roxo-fundo-botao);
-    color: var(--text-white);
-    border: 2px solid var(--roxo-interface);
-    border-radius: 50px;
-    font-weight: 900; 
-    cursor: pointer;
-    font-size: 1.1rem; /* Fonte grande e nítida */
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s;
-}
-
-.btn-side:hover, .btn-side:active {
-    background: var(--verde-neon);
-    color: #000;
-    border-color: #fff;
-    box-shadow: 0 0 20px var(--verde-neon);
-}
-
-/* RODAPÉ FIXO COMPACTO */
+/* RODAPÉ FIXO (GARANTIDO) */
 .main-footer { 
-    flex: 0 0 8%; 
+    flex: 0 0 6%; /* Reduzido para garantir que caiba tudo */
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     background: rgba(0, 0, 0, 0.95); 
     border-top: 1px solid var(--roxo-interface);
 }
 
-.credits { 
-    font-size: 0.7rem; 
-    font-weight: 700;
-    margin: 0; 
-    text-align: center;
-    color: rgba(255, 255, 255, 0.8);
-}
-
-/* AJUSTE PARA TELAS PEQUENAS (A21s) */
+/* MEDIA QUERY PARA APARELHOS PEQUENOS (A21s) */
 @media (max-height: 650px) {
-    .premium-header { flex: 0 0 22%; } /* Dá um pouco mais de espaço para a logo se a tela for baixa */
-    .titulo-portal { font-size: 0.9rem; }
-    .group-label { font-size: 1.1rem; padding: 7px; }
-    .btn-side { font-size: 0.95rem; }
+    .premium-header { flex: 0 0 10%; } /* No A21s damos um tiquinho mais de margem */
+    .titulo-portal { font-size: 0.8rem; }
+    .logo-premium { height: 70%; }
 }
-
-/* IFRAME FULLSCREEN */
-.iframe-wrapper {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: var(--bg-dark); z-index: 100; display: flex; flex-direction: column;
-}
-#frame-servico { width: 100%; flex: 1; border: none; background: #fff; }
