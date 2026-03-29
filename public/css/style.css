@@ -1,3 +1,4 @@
+/* CONFIGURAÇÕES GLOBAIS - TEMA BRASIL IA */
 :root {
     --bg-dark: #05010a; 
     --roxo-interface: #a855f7; 
@@ -11,12 +12,18 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+/* TRAVA A TELA PARA NÃO ROLAR */
+html, body {
+    margin: 0; 
+    padding: 0; 
+    height: 100%; /* Ocupa 100% da altura da janela */
+    width: 100%;
+    overflow: hidden; /* PROÍBE O SCROLL TOTAL */
+}
+
 body {
-    margin: 0; padding: 0; 
-    height: 100vh;
     display: flex; 
     flex-direction: column;
-    overflow: hidden; 
     color: var(--text-white); 
     font-family: 'Inter', sans-serif;
     background: 
@@ -25,97 +32,119 @@ body {
     background-size: cover;
 }
 
-/* HEADER COMPACTO PARA SOBRAR ESPAÇO */
+/* HEADER - AGORA COM DESTAQUE */
 .premium-header {
-    padding: 3px 0; 
-    text-align: center; 
-    background: rgba(0, 0, 0, 0.95);
+    flex: 0 0 18%; /* Ocupa exatamente 18% da altura da tela */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.85);
     border-bottom: 2px solid var(--roxo-interface);
 }
 
-.logo-premium { max-width: 40px; } /* Diminuí a logo para focar no conteúdo */
-
-.titulo-portal { 
-    font-size: 0.75rem; 
-    font-weight: 400; 
-    margin: 0; 
-    opacity: 0.8;
+.logo-premium { 
+    height: 55%; /* Logo cresce proporcional ao header */
+    width: auto;
+    filter: drop-shadow(0 0 8px var(--roxo-interface)); 
 }
 
-/* ÁREA CENTRAL */
+.titulo-portal { 
+    font-size: 1.1rem; /* TAMANHO RECUPERADO */
+    font-weight: 900; 
+    margin: 5px 0 0 0; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-white);
+}
+
+/* ÁREA CENTRAL - DINÂMICA */
 .dashboard-container {
-    flex: 1; 
+    flex: 1; /* Ocupa todo o espaço restante entre o topo e o rodapé */
     display: flex; 
+    flex-direction: column;
     align-items: center; 
-    justify-content: center;
-    padding: 5px;
+    justify-content: space-evenly; /* Distribui os botões com espaços iguais */
+    padding: 10px;
 }
 
 .button-grid {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 8px; 
     width: 100%;
-    max-width: 380px;
+    max-width: 400px;
+    height: 100%; /* Ocupa a altura do container */
+    justify-content: center;
 }
 
-/* --- DESTAQUE PARA OS ALUNOS (NOSSOS SERVIÇOS) --- */
+/* DESTAQUE NOSSOS SERVIÇOS - ACESSÍVEL */
 .group-label {
-    font-size: 1.4rem; /* FONTE BEM MAIOR */
+    font-size: 1.2rem; 
     color: #fff;
-    background: rgba(168, 85, 247, 0.4); /* Fundo roxo suave para destacar o texto */
-    padding: 10px;
-    border-radius: 10px;
+    background: rgba(168, 85, 247, 0.5); 
+    padding: 8px;
+    border-radius: 12px;
     text-transform: uppercase;
     font-weight: 900;
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     border: 1px solid var(--roxo-interface);
-    text-shadow: 2px 2px 4px #000; /* Sombra no texto para facilitar a leitura */
 }
 
-/* BOTÕES ACESSÍVEIS */
+/* BOTÕES ADAPTÁVEIS */
 .btn-side {
+    flex: 1; /* Faz os botões dividirem o espaço vertical igualmente */
+    max-height: 60px; /* Limite para não ficarem exagerados no tablet */
+    min-height: 45px;
     background: var(--roxo-fundo-botao);
     color: var(--text-white);
-    border: 2px solid var(--roxo-interface); /* Borda mais grossa */
-    padding: 15px; 
+    border: 2px solid var(--roxo-interface);
     border-radius: 50px;
-    font-weight: 900; /* Texto bem grosso */
+    font-weight: 900; 
     cursor: pointer;
-    font-size: 1.1rem; /* FONTE MAIOR NOS BOTÕES */
+    font-size: 1rem; /* Fonte nítida para idosos */
     text-transform: uppercase;
-    transition: 0.2s;
-    outline: none;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
 }
 
-/* VERDE NEON NO HOVER/TOQUE */
-.btn-side:hover {
+.btn-side:hover, .btn-side:active {
     background: var(--verde-neon);
     color: #000;
     border-color: #fff;
-    transform: scale(1.02);
 }
 
-/* RESPONSIVIDADE MOBILE (S25 / A21S) */
-@media (max-width: 480px) {
-    .group-label { font-size: 1.2rem; }
-    .btn-side { padding: 18px; font-size: 1rem; }
-}
-
-/* RODAPÉ ACESSÍVEL */
+/* RODAPÉ SEMPRE VISÍVEL */
 .main-footer { 
-    text-align: center; 
-    padding: 5px; 
-    background: rgba(0,0,0,0.95); 
+    flex: 0 0 8%; /* Ocupa exatamente 8% da altura da tela */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.95); 
+    border-top: 1px solid var(--roxo-interface);
 }
 
 .credits { 
-    font-size: 0.6rem; 
-    color: var(--roxo-interface);
+    font-size: 0.65rem; 
     font-weight: 700;
     margin: 0; 
+    text-align: center;
 }
 
-.traffic-monitor img { height: 12px; }
+/* AJUSTE PARA TELAS MUITO PEQUENAS (A21s) */
+@media (max-height: 650px) {
+    .titulo-portal { font-size: 0.9rem; }
+    .group-label { font-size: 1rem; padding: 5px; }
+    .btn-side { font-size: 0.85rem; }
+}
+
+/* IFRAME FULLSCREEN */
+.iframe-wrapper {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--bg-dark); z-index: 100; display: flex; flex-direction: column;
+}
+#frame-servico { width: 100%; flex: 1; border: none; background: #fff; }
