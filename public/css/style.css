@@ -28,11 +28,11 @@ body {
     color: var(--text-white); 
     font-family: 'Inter', sans-serif;
     
-    /* --- FUNDO OCUPANDO TODO O ESPAÇO (COVER) --- */
+    /* --- FUNDO AJUSTADO PARA APARECER A ARTE (80% de tamanho) --- */
     background: 
         radial-gradient(circle, rgba(26, 11, 46, 0.4) 0%, rgba(7, 3, 16, 0.9) 100%),
-        url('../Cyberin.png') no-repeat center center fixed;
-    background-size: cover; /* ALTERADO DE 'CONTAIN' PARA 'COVER' */
+        url('../Cyberin.png') no-repeat center 40% fixed; /* Posição em 40% para subir um pouco a imagem */
+    background-size: 85%; /* IMAGEM MENOR PARA CABER NA ARTE */
     background-color: var(--bg-dark);
 }
 
@@ -68,7 +68,7 @@ body {
     align-items: center; 
     justify-content: flex-end; /* EMPURRA OS BOTÕES PARA BAIXO */
     padding: 10px;
-    padding-bottom: 20px;
+    padding-bottom: 15px; /* Espaço reduzido para subir o rodapé */
 }
 
 /* BLOCO DE SERVIÇOS - ACESSIBILIDADE PARA IDOSOS */
@@ -77,36 +77,35 @@ body {
     max-width: 400px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    background: rgba(0, 0, 0, 0.7); /* Fundo escuro para destacar os botões */
-    padding: 15px;
+    gap: 8px; /* Gap menor para economizar altura */
+    background: rgba(0, 0, 0, 0.75); 
+    padding: 12px;
     border-radius: 20px;
     border: 1px solid rgba(168, 85, 247, 0.3);
 }
 
 .group-label {
-    font-size: 1.2rem; 
+    font-size: 1.1rem; 
     color: #fff;
     background: var(--roxo-interface); 
-    padding: 8px;
+    padding: 6px;
     border-radius: 10px;
     text-transform: uppercase;
     font-weight: 900;
     text-align: center;
     margin-bottom: 5px;
-    text-shadow: 1px 1px 2px #000;
 }
 
 /* BOTÕES ROBUSTOS (CLIQUE FÁCIL) */
 .btn-side {
     width: 100%;
-    padding: 16px; 
+    padding: 14px; 
     background: var(--roxo-fundo-botao);
     color: var(--text-white);
     border: 2px solid var(--roxo-interface);
     border-radius: 50px;
     font-weight: 900; 
-    font-size: 1.1rem; /* Fonte grande */
+    font-size: 1rem; 
     text-transform: uppercase;
     cursor: pointer;
     transition: 0.3s;
@@ -123,13 +122,13 @@ body {
 /* RODAPÉ SEMPRE VISÍVEL */
 .main-footer { 
     flex: 0 0 auto;
-    padding: 10px;
+    padding: 8px;
     background: rgba(0, 0, 0, 0.95); 
     border-top: 1px solid var(--roxo-interface);
     text-align: center;
 }
 
-.credits { font-size: 0.7rem; font-weight: 700; color: #ccc; }
+.credits { font-size: 0.65rem; font-weight: 700; color: #ccc; }
 
 /* --- TELA DO SERVIÇO (IFRAME) --- */
 .iframe-wrapper {
@@ -139,8 +138,8 @@ body {
     width: 100vw; 
     height: 100vh;
     background: var(--bg-dark); 
-    z-index: 9999; /* Fica na frente de tudo */
-    display: none; /* Ativado pelo JS */
+    z-index: 9999; 
+    display: none; 
     flex-direction: column;
 }
 
@@ -156,7 +155,7 @@ body {
     background: #000; 
     border-bottom: 2px solid var(--roxo-interface); 
     display: flex;
-    justify-content: flex-start; /* Botão voltar na esquerda */
+    justify-content: flex-start; 
     align-items: center;
 }
 
@@ -170,14 +169,12 @@ body {
     font-size: 1rem;
     text-transform: uppercase;
     cursor: pointer;
-    box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
 }
 
 /* AJUSTES PARA CELULARES MENORES (A21s) */
 @media (max-height: 650px) {
     .logo-premium { height: 35px; }
-    .titulo-portal { font-size: 0.85rem; }
-    .group-label { font-size: 1rem; }
-    .btn-side { padding: 12px; font-size: 0.95rem; }
-    .dashboard-container { padding-bottom: 10px; }
+    .titulo-portal { font-size: 0.8rem; }
+    .btn-side { padding: 11px; font-size: 0.9rem; }
+    body { background-size: 75%; } /* Imagem ainda menor em telas pequenas para não sumir */
 }
