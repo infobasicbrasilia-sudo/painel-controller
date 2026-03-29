@@ -1,11 +1,20 @@
-/* CONFIGURAÇÕES GLOBAIS - PALETA SÓBRIA COM ROXO */
+/* CONFIGURAÇÕES GLOBAIS - PALETA BASEADA NA IMAGEM BRASIL IA */
 :root {
-    --bg-dark: #070310;
-    --roxo-principal: #a855f7; /* Roxo vibrante para bordas e destaques */
-    --roxo-fundo-botao: #6b21a8; /* Roxo mais escuro e sóbrio para o fundo do botão */
-    --roxo-hover: #7e22ce; /* Roxo para o efeito de hover */
-    --border: rgba(168, 85, 247, 0.4);
+    /* Fundo Escuro (baseado nas áreas mais escuras do fundo da imagem) */
+    --bg-dark: #05010a; 
+    
+    /* Roxo Médio (para bordas e elementos de interface - baseado no halo de energia) */
+    --roxo-interface: #a855f7; 
+    
+    /* Magenta Vibrante (para o efeito de hover - baseado no brilho intenso e no texto BRASIL IA) */
+    --magenta-neon: #ff00ff; 
+    
+    /* Fundo do Botão (baseado na cor média do moletom e halos de luz) */
+    --roxo-fundo-botao: #6b21a8; 
+    
+    /* Cores de Texto e Interface */
     --text-white: #ffffff;
+    --border-alpha: rgba(168, 85, 247, 0.4);
 }
 
 * { 
@@ -20,7 +29,7 @@ body {
     color: var(--text-white); 
     font-family: 'Inter', sans-serif;
     
-    /* Fundo com a logo Brasil IA cobrindo tudo */
+    /* Fundo com a logo Brasil IA cobrindo tudo - mantendo o overlay para contraste */
     background: 
         radial-gradient(circle, rgba(26, 11, 46, 0.8) 0%, rgba(7, 3, 16, 0.9) 100%),
         url('../BrasilIALogo.png') no-repeat center center fixed;
@@ -32,7 +41,7 @@ body {
     padding: 15px 10px; 
     text-align: center; 
     background: rgba(0, 0, 0, 0.85);
-    border-bottom: 2px solid var(--roxo-principal);
+    border-bottom: 2px solid var(--roxo-interface);
     z-index: 10;
 }
 
@@ -47,6 +56,7 @@ body {
     font-weight: 900; 
     margin: 8px 0; 
     text-transform: uppercase;
+    color: var(--text-white);
 }
 
 /* CONTAINER CENTRALIZADO */
@@ -71,7 +81,7 @@ body {
 
 .group-label {
     font-size: 0.8rem;
-    color: var(--roxo-principal);
+    color: var(--roxo-interface); /* Mantendo o roxo como guia */
     text-transform: uppercase;
     letter-spacing: 3px;
     font-weight: 900;
@@ -81,30 +91,32 @@ body {
     border-bottom: 1px solid rgba(168, 85, 247, 0.2);
 }
 
-/* ESTILO DOS BOTÕES ARREDONDADOS E ROXOS */
+/* ESTILO DOS BOTÕES ARREDONDADOS E ROXOS (FIÉIS À IMAGEM) */
 .btn-side {
-    background: var(--roxo-fundo-botao); /* Fundo Roxo Simples */
+    background: var(--roxo-fundo-botao); /* Fundo Roxo Médio da imagem */
     color: var(--text-white); /* Fonte Branca */
-    border: 2px solid var(--roxo-principal); /* Borda Roxo Vibrante */
-    padding: 18px 20px; /* Altura equilibrada para toque e leitura */
+    border: 2px solid var(--roxo-interface); /* Borda Roxo Médio vibrante */
+    padding: 18px 20px; 
     border-radius: 50px; /* BORDAS ARREDONDADAS (Estilo Pílula) */
     font-weight: 800; /* Texto grosso e legível */
     cursor: pointer;
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: all 0.2s ease;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     backdrop-filter: blur(5px);
     outline: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra suave para destacar */
 }
 
 .btn-side:hover {
-    background: var(--roxo-hover); /* Efeito de brilho ao passar o mouse */
-    box-shadow: 0 5px 15px rgba(168, 85, 247, 0.4);
+    background: var(--roxo-interface); /* Muda para o roxo vibrante */
+    border-color: var(--magenta-neon); /* Borda Magenta Vibrante no hover */
+    box-shadow: 0 5px 20px rgba(255, 0, 255, 0.3); /* Brilho magenta suave */
 }
 
 .btn-side:active {
-    background: var(--roxo-principal);
+    background: #5b2190; /* Um roxo ainda mais escuro para o clique */
     transform: scale(0.97); /* Efeito de clique físico */
 }
 
@@ -140,9 +152,9 @@ body {
 
 #frame-servico { width: 100%; flex: 1; border: none; background: #fff; }
 
-.servico-header { padding: 10px; background: #000; border-bottom: 2px solid var(--roxo-principal); }
+.servico-header { padding: 10px; background: #000; border-bottom: 2px solid var(--roxo-interface); }
 .btn-voltar {
-    background: #ef4444; /* Vermelho padrão para o botão de sair */
+    background: #ef4444; /* Mantive o vermelho padrão para o botão de sair */
     color: #fff; 
     border: none; 
     padding: 8px 15px;
@@ -154,4 +166,4 @@ body {
 
 /* RODAPÉ COMPACTO */
 .main-footer { text-align: center; padding: 15px; background: rgba(0,0,0,0.8); }
-.credits { font-size: 0.6rem; opacity: 0.7; margin: 0; }
+.credits { font-size: 0.6rem; opacity: 0.8; margin: 0; }
