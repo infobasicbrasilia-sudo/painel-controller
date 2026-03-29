@@ -14,9 +14,7 @@ function abrirServico(tipo) {
 
     if (url) {
         iframe.src = url;
-        // Mostra o container ( fixed e ocupa a tela toda)
         container.style.display = 'flex';
-        // Bloqueia o scroll do fundo
         document.body.style.overflow = 'hidden';
     }
 }
@@ -27,6 +25,5 @@ function fecharServico() {
 
     container.style.display = 'none';
     iframe.src = "";
-    // Devolve o scroll
     document.body.style.overflow = 'auto';
 }
