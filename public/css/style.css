@@ -29,7 +29,7 @@ body {
     z-index: 10;
 }
 
-.logo-premium { max-width: 50px; filter: drop-shadow(0 0 10px var(--lilac-neon)); }
+.logo-premium { max-width: 150px; filter: drop-shadow(0 0 10px var(--lilac-neon)); }
 .titulo-portal { font-size: 1.2rem; letter-spacing: 3px; font-weight: 900; margin: 10px 0; }
 
 /* LAYOUT CENTRALIZADO */
