@@ -27,11 +27,12 @@ body {
     flex-direction: column;
     color: var(--text-white); 
     font-family: 'Inter', sans-serif;
-    /* FUNDO COM A PROPAGANDA CENTRALIZADA */
+    
+    /* --- FUNDO OCUPANDO TODO O ESPAÇO (COVER) --- */
     background: 
         radial-gradient(circle, rgba(26, 11, 46, 0.4) 0%, rgba(7, 3, 16, 0.9) 100%),
         url('../BrasilIALogo.png') no-repeat center center fixed;
-    background-size: contain; 
+    background-size: cover; /* ALTERADO DE 'CONTAIN' PARA 'COVER' */
     background-color: var(--bg-dark);
 }
 
@@ -130,7 +131,7 @@ body {
 
 .credits { font-size: 0.7rem; font-weight: 700; color: #ccc; }
 
-/* --- TELA DO SERVIÇO (IFRAME) - CORREÇÃO TOTAL --- */
+/* --- TELA DO SERVIÇO (IFRAME) --- */
 .iframe-wrapper {
     position: fixed; 
     top: 0; 
