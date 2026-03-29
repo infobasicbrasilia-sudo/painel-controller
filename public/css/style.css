@@ -1,66 +1,133 @@
-/* HEADER - ULTRA SLIM (HORIZONTAL) */
-.premium-header {
-    flex: 0 0 7%; /* Reduzido drasticamente */
-    display: flex;
-    flex-direction: row; /* Logo e Título na mesma linha */
-    align-items: center;
-    justify-content: center;
-    gap: 15px; /* Espaço entre logo e texto */
-    background: rgba(0, 0, 0, 0.95);
-    border-bottom: 2px solid var(--roxo-interface);
-    padding: 0 10px;
+/* CONFIGURAÇÕES GLOBAIS - TEMA BRASIL IA */
+:root {
+    --bg-dark: #05010a; 
+    --roxo-interface: #a855f7; 
+    --roxo-fundo-botao: #6b21a8; 
+    --verde-neon: #00ff66; 
+    --text-white: #ffffff;
+    --neon-blue: #00f3ff;
+    --neon-pink: #ff00ff;
 }
 
-/* LOGO AJUSTADA PARA O TOPO FINO */
+* { 
+    box-sizing: border-box; 
+    margin: 0; padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* TRAVA A TELA */
+html, body {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden; /* Proíbe o scroll */
+}
+
+body {
+    display: flex; 
+    flex-direction: column;
+    color: var(--text-white); 
+    font-family: 'Inter', sans-serif;
+    background: 
+        radial-gradient(circle, rgba(26, 11, 46, 0.8) 0%, rgba(7, 3, 16, 0.9) 100%),
+        url('../BrasilIALogo.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* HEADER MAGRO E CENTRALIZADO */
+.premium-header {
+    flex: 0 0 auto; /* Ocupa apenas o necessário */
+    padding: 5px 0;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.9);
+    border-bottom: 2px solid var(--roxo-interface);
+}
+
 .logo-premium { 
-    height: 80%; /* Ocupa quase toda a altura desse header fino */
+    height: 40px; /* Tamanho fixo para não quebrar */
     width: auto;
-    filter: 
-        drop-shadow(0 0 8px var(--neon-blue)) 
-        drop-shadow(0 0 15px var(--neon-pink));
+    filter: drop-shadow(0 0 8px var(--neon-blue)) drop-shadow(0 0 12px var(--neon-pink));
 }
 
 .titulo-portal { 
-    font-size: 0.9rem; /* Diminuído para caber na horizontal */
+    font-size: 0.85rem; 
     font-weight: 900; 
-    margin: 0; 
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: var(--text-white);
+    margin-top: 2px;
 }
 
-/* AJUSTE NA ÁREA CENTRAL PARA GANHAR ESPAÇO */
+/* ÁREA CENTRAL - DINÂMICA */
 .dashboard-container {
-    flex: 1; 
-    display: flex; 
+    flex: 1; /* Ocupa o meio da tela */
+    display: flex;
     flex-direction: column;
-    align-items: center; 
-    justify-content: center; /* Centraliza o bloco de botões */
+    align-items: center;
+    justify-content: center; /* Centraliza o conteúdo */
     padding: 10px;
 }
 
 .button-grid {
+    width: 100%;
+    max-width: 400px;
     display: flex;
     flex-direction: column;
-    gap: 8px; 
+    gap: 8px; /* Espaço entre botões */
+}
+
+/* TÍTULO DOS SERVIÇOS - GRANDE PARA OS IDOSOS */
+.group-label {
+    font-size: 1.1rem;
+    color: #fff;
+    background: rgba(168, 85, 247, 0.4);
+    padding: 6px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 10px;
+    border: 1px solid var(--roxo-interface);
+}
+
+/* BOTÕES ROBUSTOS */
+.btn-side {
     width: 100%;
-    max-width: 420px;
-    /* Removido o height 100% para os botões não esticarem demais e sumirem com o rodapé */
+    padding: 14px; 
+    background: var(--roxo-fundo-botao);
+    color: var(--text-white);
+    border: 2px solid var(--roxo-interface);
+    border-radius: 50px;
+    font-weight: 900;
+    font-size: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
 }
 
-/* RODAPÉ FIXO (GARANTIDO) */
+.btn-side:hover, .btn-side:active {
+    background: var(--verde-neon);
+    color: #000;
+    border-color: #fff;
+    box-shadow: 0 0 15px var(--verde-neon);
+}
+
+/* RODAPÉ FIXO NA BASE */
 .main-footer { 
-    flex: 0 0 6%; /* Reduzido para garantir que caiba tudo */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.95); 
+    flex: 0 0 auto; /* Fica no pé da tela */
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.9);
     border-top: 1px solid var(--roxo-interface);
+    text-align: center;
 }
 
-/* MEDIA QUERY PARA APARELHOS PEQUENOS (A21s) */
-@media (max-height: 650px) {
-    .premium-header { flex: 0 0 10%; } /* No A21s damos um tiquinho mais de margem */
-    .titulo-portal { font-size: 0.8rem; }
-    .logo-premium { height: 70%; }
+.credits { 
+    font-size: 0.65rem; 
+    font-weight: 700;
+}
+
+/* AJUSTE PARA O A21S (TELA MENOR) */
+@media (max-height: 600px) {
+    .logo-premium { height: 30px; }
+    .btn-side { padding: 10px; font-size: 0.9rem; }
+    .group-label { font-size: 0.9rem; margin-bottom: 5px; }
 }
