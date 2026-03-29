@@ -38,7 +38,7 @@ body {
 
 /* HEADER - COM LOGO ESTILIZADA NEON */
 .premium-header {
-    flex: 0 0 20%; /* Aumentei um pouco para dar destaque à logo estilizada */
+    flex: 0 0 5%; /* Aumentei um pouco para dar destaque à logo estilizada */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -50,7 +50,7 @@ body {
 
 /* --- ESTILO NEON CYBERPUNK NA LOGO --- */
 .logo-premium { 
-    height: 30%; /* Proporcional ao header */
+    height: 25%; /* Proporcional ao header */
     width: auto;
     /* Efeito de brilho intenso Ciano/Roxo */
     filter: 
