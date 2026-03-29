@@ -50,7 +50,7 @@ body {
 
 /* --- ESTILO NEON CYBERPUNK NA LOGO --- */
 .logo-premium { 
-    height: 55%; /* Proporcional ao header */
+    height: 30%; /* Proporcional ao header */
     width: auto;
     /* Efeito de brilho intenso Ciano/Roxo */
     filter: 
