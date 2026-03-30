@@ -29,40 +29,39 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: var(--bg-dark);
 
-    /* --- SOBREPOSIÇÃO DE IMAGENS (MOBILE) --- */
+    /* --- SOBREPOSIÇÃO DE IMAGENS (MOBILE) --- 
+       1. Cyberin: Fica na frente, nítida e sem sombras.
+       2. Gradient: Escurece apenas o que está atrás dele.
+       3. BrasilIALogo: O fundo nítido na base.
+    */
     background-image: 
-        /* Camada 1: Efeito de luz/sombra (No topo) */
-        radial-gradient(circle, rgba(26, 11, 46, 0.4) 0%, rgba(7, 3, 16, 0.9) 100%),
-        /* Camada 2: A Arte (Cyberin.png) - Sobreposta */
         url('../Cyberin.png'),
-        /* Camada 3: O Fundo (BrasilIALogo.png) - Por baixo de tudo */
+        radial-gradient(circle, rgba(26, 11, 46, 0.4) 0%, rgba(7, 3, 16, 0.9) 100%),
         url('../BrasilIALogo.png');
 
     background-repeat: no-repeat;
     background-attachment: fixed;
     
-    /* POSICIONAMENTO: 
-       Gradient: center | Cyberin: Centralizado no vão (40%) | BrasilIA: Cobre tudo */
-    background-position: center, center 40%, center center;
+    /* POSICIONAMENTO: Cyberin centralizada no vão (40%) | Resto centralizado */
+    background-position: center 40%, center, center center;
     
-    /* TAMANHO:
-       Gradient: cobre tudo | Cyberin: 85% para não bater nos botões | BrasilIA: cobre tudo */
-    background-size: cover, 85%, cover;
+    /* TAMANHO: Cyberin em 85% para mobile | Resto cobre a tela toda */
+    background-size: 85%, cover, cover;
 }
 
-/* --- AJUSTE PARA DESKTOP --- */
+/* --- AJUSTE PARA DESKTOP (PC/NOTEBOOK) --- */
 @media (min-width: 1024px) {
     body {
-        /* No Desktop, a Cyberin.png fica travada em 400px para não esticar */
-        background-size: cover, 400px, cover;
-        background-position: center, center 30%, center center;
+        /* Trava a Cyberin em 400px para não esticar no monitor largo */
+        background-size: 400px, cover, cover;
+        background-position: center 30%, center, center center;
     }
     .button-grid {
         max-width: 350px; 
     }
 }
 
-/* HEADER COMPACTO */
+/* HEADER COMPACTO (LOGO E TÍTULO) */
 .premium-header {
     flex: 0 0 auto; 
     padding: 10px 0;
@@ -86,7 +85,7 @@ body {
     margin-top: 5px;
 }
 
-/* ÁREA CENTRAL */
+/* ÁREA CENTRAL - ESPAÇO PARA A ARTE */
 .dashboard-container {
     flex: 1; 
     display: flex; 
@@ -97,7 +96,7 @@ body {
     padding-bottom: 15px;
 }
 
-/* BLOCO DE SERVIÇOS */
+/* BLOCO DE SERVIÇOS - ACESSIBILIDADE */
 .button-grid {
     width: 100%;
     max-width: 400px;
@@ -179,11 +178,13 @@ body {
     text-transform: uppercase; cursor: pointer;
 }
 
-/* AJUSTES PARA CELULARES PEQUENOS */
+/* AJUSTES PARA CELULARES PEQUENOS (A21s) */
 @media (max-height: 650px) {
     .logo-premium { height: 35px; }
     .titulo-portal { font-size: 0.8rem; }
     .btn-side { padding: 11px; font-size: 0.9rem; }
-    /* Reduz a arte Cyberin para não atropelar o layout em telas curtas */
-    body { background-size: cover, 70%, cover; } 
+    body { 
+        /* Cyberin um pouco menor para não sumir atrás dos botões */
+        background-size: 70%, cover, cover; 
+    } 
 }
